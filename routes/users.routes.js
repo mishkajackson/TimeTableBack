@@ -12,5 +12,6 @@ module.exports = app => {
   app.get("/timeline/:id", timeline.findTimeLineById);
   app.post("/timeline/", timeline.createTimeLine);
   app.put("/timeline/:id", timeline.update);
+  app.delete("/timeline/:id", timeline.delete);
 
   };

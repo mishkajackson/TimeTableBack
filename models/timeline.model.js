@@ -79,6 +79,24 @@ TimeLine.updateById = (id, timeline, result) => {
   );
 };
 
+TimeLine.remove = (id, result) => {
+  sql.query("DELETE FROM timeline WHERE id = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("deleted user with id: ", id);
+    result(null, res);
+  });
+};
+
 // Users.findById = (id, result) => {
 //   sql.query(`SELECT * FROM users WHERE users.id = ${id}`, (err, res) => {
 //     if (err) {
