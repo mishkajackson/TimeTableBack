@@ -10,6 +10,7 @@ module.exports = app => {
 
   app.get("/timeline/", timeline.findAllTimeLine)
   app.get("/timeline/:id", timeline.findTimeLineById);
+  app.get("/timeline/cab/:cab", timeline.findTimeLineByCab);
   app.post("/timeline/", timeline.createTimeLine);
   app.put("/timeline/:id", timeline.update);
   app.delete("/timeline/:id", timeline.delete);

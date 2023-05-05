@@ -13,6 +13,17 @@ exports.findAllTimeLine = (req, res) => {
     });
   };
 
+exports.findTimeLineByCab = (req, res) => {
+  TimeLine.findByCab(req.params.cab, (err, data) => {
+    if (err) {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Users."
+      })
+    } else res.send(data);
+  });
+};
+
 exports.createTimeLine = (req, res) => {
   if (!req.body) {
     res.status(400).send({

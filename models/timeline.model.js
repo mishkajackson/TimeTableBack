@@ -26,6 +26,23 @@ TimeLine.getAllTimeLine = (result) => {
   });
 };
 
+TimeLine.findByCab = (cab,result) => {
+  sql.query(`SELECT * FROM timeline WHERE cab = ${cab}`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found users: ", res);
+      result(null, res);
+      return;
+    }
+    result({ kind: "not_found" }, null);
+  });
+};
+
 TimeLine.create = (newTimeLine, result) => {
   sql.query(`INSERT INTO timeline SET ?`, newTimeLine, (err, res) => {
     if (err) {
