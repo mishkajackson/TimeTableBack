@@ -27,7 +27,7 @@ TimeLine.getAllTimeLine = (result) => {
 };
 
 TimeLine.findByCab = (cab, result) => {
-  sql.query(`SELECT * FROM timeline WHERE cab = ${cab}`, (err, res) => {
+  sql.query(`SELECT tl.id, u.name, u.id AS userid, tl.date, tl.day, tl.cab FROM timeline tl, users u WHERE tl.userid = u.id AND tl.cab = ${cab}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
