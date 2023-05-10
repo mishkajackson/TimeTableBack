@@ -2,7 +2,7 @@ const sql = require("./db.js");
 
 // constructor
 const TimeLine = function (timeline) {
-  this.name = timeline.name
+  this.userid = timeline.userid
   this.date = timeline.date
   this.day = timeline.day
   this.cab = timeline.cab
