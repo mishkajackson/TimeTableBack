@@ -1,7 +1,7 @@
 const sql = require("./db.js");
 
 // constructor
-const TimeLine = function(timeline) {
+const TimeLine = function (timeline) {
   this.name = timeline.name
   this.date = timeline.date
   this.day = timeline.day
@@ -10,7 +10,7 @@ const TimeLine = function(timeline) {
 
 
 TimeLine.getAllTimeLine = (result) => {
-  sql.query(`SELECT * FROM timeline`, (err, res) => {
+  sql.query(`SELECT tl.id, u.name, u.id AS userid, tl.date, tl.day, tl.cab FROM timeline tl, users u WHERE tl.userid = u.id`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -26,7 +26,7 @@ TimeLine.getAllTimeLine = (result) => {
   });
 };
 
-TimeLine.findByCab = (cab,result) => {
+TimeLine.findByCab = (cab, result) => {
   sql.query(`SELECT * FROM timeline WHERE cab = ${cab}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
