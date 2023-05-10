@@ -32,7 +32,7 @@ exports.createTimeLine = (req, res) => {
   }
 
   const timeLine = new TimeLine({
-    name: req.body.name,
+    userid: req.body.userid,
     date: req.body.date,
     day: req.body.day,
     cab: req.body.cab,

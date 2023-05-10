@@ -75,8 +75,8 @@ TimeLine.findById = (id, result) => {
 
 TimeLine.updateById = (id, timeline, result) => {
   sql.query(
-    "UPDATE timeline SET name = ?, date = ?, day = ?, cab = ? WHERE id = ?",
-    [timeline.name, timeline.date, timeline.day, timeline.cab, id],
+    "UPDATE timeline SET userid = ?, date = ?, day = ?, cab = ? WHERE id = ?",
+    [timeline.userid, timeline.date, timeline.day, timeline.cab, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
