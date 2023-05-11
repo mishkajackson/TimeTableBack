@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "server74.hosting.reg.ru",
-  PORT: "3306",
+  PORT: process.env.PORT,
   USER: "u2043157_default",
-  PASSWORD: "TUk69Jvn11UHC6jG",
+  PASSWORD: process.env.DBPASSWORD,
   DB: "u2043157_default"
 };

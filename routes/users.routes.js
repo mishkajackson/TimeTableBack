@@ -1,6 +1,7 @@
 module.exports = app => {
-    const users = require("../controllers/users.controller.js");
+  const users = require("../controllers/users.controller.js");
   const timeline = require("../controllers/timeline.controller.js");
+  const auth = require("../controllers/auth.controller.js");
 
   app.get("/users/", users.findAllUsers);
   app.get("/users/:id", users.findUserById);
@@ -15,4 +16,5 @@ module.exports = app => {
   app.put("/timeline/:id", timeline.update);
   app.delete("/timeline/:id", timeline.delete);
 
+  app.get("/auth/:login/:password", auth.getUserNameLogin);
   };
