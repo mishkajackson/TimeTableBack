@@ -11,7 +11,7 @@ const Auth = function (auth) {
 
 
 Auth.getUserName = (login, password, result) => {
-    sql.query(`SELECT u.name, u.id FROM auth a, users u WHERE a.userid = u.id AND a.login = '${login}' AND a.password = '${password}'`, (err, res) => {
+    sql.query(`SELECT u.name, u.id, u.role FROM auth a, users u WHERE a.userid = u.id AND a.login = '${login}' AND a.password = '${password}'`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
