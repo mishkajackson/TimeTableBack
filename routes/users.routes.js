@@ -3,18 +3,18 @@ module.exports = app => {
   const timeline = require("../controllers/timeline.controller.js");
   const auth = require("../controllers/auth.controller.js");
 
-  app.get("/users/", users.findAllUsers);
-  app.get("/users/:id", users.findUserById);
-  app.post("/users/", users.createUser);
-  app.put("/users/:id", users.update);
-  app.delete("/users/:id", users.delete);
+  app.get("/api/users/", users.findAllUsers);
+  app.get("/api/users/:id", users.findUserById);
+  app.post("/api/users/", users.createUser);
+  app.put("/api/users/:id", users.update);
+  app.delete("/api/users/:id", users.delete);
 
-  app.get("/timeline/", timeline.findAllTimeLine)
-  app.get("/timeline/:id", timeline.findTimeLineById);
-  app.get("/timeline/cab/:cab", timeline.findTimeLineByCab);
-  app.post("/timeline/", timeline.createTimeLine);
-  app.put("/timeline/:id", timeline.update);
-  app.delete("/timeline/:id", timeline.delete);
+  app.get("/api/timeline/", timeline.findAllTimeLine)
+  app.get("/api/timeline/:id", timeline.findTimeLineById);
+  app.get("/api/timeline/cab/:cab", timeline.findTimeLineByCab);
+  app.post("/api/timeline/", timeline.createTimeLine);
+  app.put("/api/timeline/:id", timeline.update);
+  app.delete("/api/timeline/:id", timeline.delete);
 
-  app.get("/auth/:login/:password", auth.getUserNameLogin);
+  app.get("/api/auth/:login/:password", auth.getUserNameLogin);
   };
